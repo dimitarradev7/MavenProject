@@ -1,11 +1,8 @@
 package CalculatorTests;
 
 import Calculator.Calculator;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.*;
-import org.junit.Test;
+
 import junit.framework.TestCase;
 
 
@@ -42,6 +39,8 @@ public class CalculatorSumTest {
     }
     @Test
     public void calculatorMultiplyTest() {
+
+        System.out.println("calculatorMultiplyTest from sum tests");
         double a = 4;
         double b = 6;
         double result = 24;

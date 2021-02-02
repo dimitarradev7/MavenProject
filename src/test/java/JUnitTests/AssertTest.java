@@ -29,11 +29,13 @@ public class AssertTest {
 
         //Assert statements
         assertEquals(string1,string2);
-        assertSame(string3, string4);
+        assertFalse(num > 6);
+       assertSame(string3, string4);
+        System.out.println("test");
         assertNotSame(string1, string3);
         assertNotNull(string1);
         assertNull(string5);
-        assertTrue(variable1<variable2);
+       /* assertTrue(variable1<variable2);
         assertArrayEquals(airethematicArrary1, airethematicArrary2);
         //check for equality
         assertEquals("Junit is working fine", str);
@@ -42,6 +44,6 @@ public class AssertTest {
         assertFalse(num > 6);
 
         //check for not null value
-        assertNotNull(temp);
+        assertNotNull(temp);*/
     }
 }

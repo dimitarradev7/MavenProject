@@ -3,23 +3,23 @@ package JUnitTests;
 import org.junit.*;
 
 import static org.junit.Assert.fail;
-import junit.framework.TestCase;
 
 /**
  * Created by dimitarrad
  * on 1/30/2021
  */
 public class JUnitAnnotations {
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-        System.out.println("@BeforeClass method will be executed before the JUnit test for"
-                + "a Class starts");
-    }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
         System.out.println("@AfterClass method will be executed after JUnit test for"
                 + "a Class Completed");
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+        System.out.println("@BeforeClass method will be executed before the JUnit test for"
+                + "a Class starts");
     }
 
     @Before
@@ -30,14 +30,15 @@ public class JUnitAnnotations {
     @After
     public void tearDown() {
         System.out.println("@After method will execute after every JUnit4 test");
-            }
+    }
 
+    @Ignore
     @Test
     public void testCalculateInterest() {
 
-System.out.println("calculateInterest");
+        System.out.println("calculateInterest");
         fail("An Example of @Test JUnit4 annotation");
-      }
+    }
 
     @Ignore("Not yet implemented")
     @Test
@@ -46,6 +47,7 @@ System.out.println("calculateInterest");
         fail("@Ignore method will not run by JUnit4");
     }
 
+    @Ignore
     @Test(timeout = 500)
     public void testTimeout() {
         System.out.println("@Test(timeout) can be used to enforce timeout in JUnit4 test case");
@@ -54,11 +56,11 @@ System.out.println("calculateInterest");
         }
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testException() {
         System.out.println("@Test(expected) will check for specified exception during its run");
-        //throw  new IllegalArgumentException();
-
+        String[] as = new String[2];
+        String test = as[3];
     }
 
 }

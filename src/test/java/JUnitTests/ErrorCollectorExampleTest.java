@@ -17,6 +17,7 @@ public class ErrorCollectorExampleTest {
     public ErrorCollector collector = new ErrorCollector();
     @Test
     public void example() {
+
         collector.addError(new Throwable("There is an error in first line"));
         collector.addError(new Throwable("There is an error in second line"));
 

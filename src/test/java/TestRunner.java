@@ -1,4 +1,8 @@
+import CalculatorTests.CalculatorDivTest;
+import CalculatorTests.CalculatorSumTest;
 import CalculatorTests.CalculatorTestSuite;
+import JUnitTests.ErrorCollectorExampleTest;
+import SeleniumTests.Tast1;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -16,6 +20,10 @@ public class TestRunner {
             System.out.println(failure.toString());
         }
 
-        System.out.println(result.wasSuccessful());
+        System.out.println(result.getRunCount());
+        System.out.println(result.getRunTime());
+        System.out.println(result.getFailureCount());
+        System.out.println(result.getIgnoreCount());
+                System.out.println(result.wasSuccessful());
     }
 }
