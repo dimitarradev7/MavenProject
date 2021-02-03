@@ -21,6 +21,12 @@ public class CalculatorSumTest {
         cal = new Calculator();
     }
 
+    @Before
+    public void setUp2() {
+        System.out.println("setUp2 "+ this.getClass().getName()+ " will be executed");
+        cal = new Calculator();
+    }
+
     @AfterClass
     public static void tearDown()  {
         System.out.println("Test suite finished");
