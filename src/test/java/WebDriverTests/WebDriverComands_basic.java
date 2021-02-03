@@ -5,6 +5,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.json.JsonOutput;
+
+import java.util.List;
 
 /**
  * Created by dimitarrad
@@ -20,23 +23,27 @@ public class WebDriverComands_basic {
         // Create a new instance of the FireFox driver
 
         // Storing the Application Url in the String variable
-        String url = "http://automationpractice.com/";
-        //String url = "C://Users//dimitarrad//IdeaProjects//Html//src//index.html";
+        //String url = "http://automationpractice.com/";
+        String url = "C://Users//dimitarrad//IdeaProjects//Html//src//index.html";
 
         WebDriver driver = new ChromeDriver();
 
         //Launch the ToolsQA WebSite
             driver.get(url);
             try {
-                WebElement element = driver.findElement(By.id("UserName"));
-            }catch (NoSuchElementException r){
+                WebElement element = driver.findElement(By.id("UserNamedfdf"));
+            }catch (NullPointerException r){
                 System.out.println(" NoSuchElementException catched ");
             }
 
-        WebElement element = driver.findElement(By.id("UserName"));
-        if(element != null) {
-            System.out.println("Element found by ID");
+        List<WebElement> elements = driver.findElements(By.tagName("input"));
+
+        System.out.println("input elements found: "+elements.size());
+
+        for (WebElement el:elements) {
+            System.out.println( el.getAttribute("type"));
         }
+
 
         String t = driver.getTitle();
         String currUrl = driver.getCurrentUrl();
