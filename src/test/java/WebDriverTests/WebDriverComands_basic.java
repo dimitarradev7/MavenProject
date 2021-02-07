@@ -6,7 +6,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.json.JsonOutput;
 import org.openqa.selenium.support.ui.Select;
 
+
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -27,6 +29,9 @@ public class WebDriverComands_basic {
         String url = "https://google.com";
 
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("homepage", "http://www.seleniumhq.com/");
+        options.addArguments("start-maximized");
+        options.addArguments("version");
         //options.addArguments("incognito");
         //options.addArguments("start-maximized");
         //options.addArguments("user-data-dir=" + "C:/Users/dimitarrad/AppData/Local/Google/Chrome/User Data/Default");
@@ -48,7 +53,7 @@ public class WebDriverComands_basic {
 
         Set<Cookie> d = driver.manage().getCookies();
 
-        driver.navigate().refresh();
+       // driver.navigate().refresh();
         Set<Cookie> d2 = driver.manage().getCookies();
         //Launch the ToolsQA WebSite
 
@@ -72,6 +77,35 @@ public class WebDriverComands_basic {
 
         String t = driver.getTitle();
 
+        WebElement p = driver.findElement(By.cssSelector("div[class='selenium-backers separator']>h2"));
+       String text = p.getText();
+
+
+       boolean s =  text.contains("color");
+        boolean s1 =  text.startsWith("color");
+        boolean s2 =  text.endsWith("color");
+        System.out.println(text);
+
         System.out.println(t);
+
+       WebElement e = driver.findElement(By.cssSelector("body"));
+
+        e.click();
+       e.sendKeys(Keys.CONTROL +"t");
+
+
+        e.sendKeys(Keys.CONTROL +"t");
+        ((JavascriptExecutor)driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1)); //switches to new tab
+        driver.get("https://www.facebook.com");
+
+        driver.switchTo().window(tabs.get(0)); // switch back to main screen
+        driver.get("https://www.news.google.com");
+
+        driver.close();
+
+
+
     }
 }
