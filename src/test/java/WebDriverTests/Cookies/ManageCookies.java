@@ -1,23 +1,17 @@
-package WebDriverTests;
+package WebDriverTests.Cookies;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.json.JsonOutput;
-import org.openqa.selenium.support.ui.Select;
 
-import java.security.Key;
-import java.util.List;
 import java.util.Set;
 
 /**
  * Created by dimitarrad
- * on 2/2/2021
+ * on 2/7/2021
  */
-public class WebDriverComands_basic {
-
-    public static void main(String[] args) throws InterruptedException {
-
+public class ManageCookies {
+    public static void main(String[] args) {
 
         String driverExecutablePath = "C://WebDriver//bin//chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverExecutablePath);
@@ -73,5 +67,6 @@ public class WebDriverComands_basic {
         String t = driver.getTitle();
 
         System.out.println(t);
+        driver.close();;
     }
 }
