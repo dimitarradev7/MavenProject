@@ -89,6 +89,7 @@ public class WebDriverComands_basic {
         System.out.println(t);
 
        WebElement e = driver.findElement(By.cssSelector("body"));
+        String width  = e.getCssValue("width");
 
         e.click();
        e.sendKeys(Keys.CONTROL +"t");
