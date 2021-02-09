@@ -26,26 +26,25 @@ public class ActionsTests {
        Thread.sleep(2000L);
 
 
-
-       /* actions.keyDown(element, Keys.SHIFT);
+/*
+        actions.keyDown(element, Keys.SHIFT);
 
         actions.sendKeys("tessyysdd");
 
-        actions.keyUp(Keys.SHIFT);*/
+        actions.keyUp(Keys.SHIFT);
 
-       /* Actions actions = new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.contextClick(element).perform();
 
         Actions actionsOtherWay = new Actions(driver);
         Action action = actionsOtherWay.build();
-        action.perform();*/
+        action.perform();
 
-     /*   Actions actions = new Actions(driver);
+        Actions actions = new Actions(driver);
         WebElement source = driver.findElement(By.id("id"));
 
         WebElement target = driver.findElement(By.id("id"));
-        actions.dragAndDrop(source,target).perform();
-*/
+        actions.dragAndDrop(source,target).perform();*/
 
         Actions actions = new Actions(driver);
         //Retrieve WebElement 'Music' to perform mouse hover
@@ -55,7 +54,6 @@ public class ActionsTests {
 
         WebElement menuOptionSub = driver.findElement(By.xpath(".//ul[@id='nav']/li/ul/li/a[contains(text(),'SUB SUB')]"));
         actions.moveToElement(menuOptionSub).perform();
-
 
     }
 }

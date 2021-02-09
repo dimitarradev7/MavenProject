@@ -1,5 +1,6 @@
 package SeleniumTests;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,7 +14,7 @@ public class Tast1 {
         System.setProperty("webdriver.chrome.driver","C://WebDriver//bin//chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://abv.bg");
+        driver.get("C:\\Users\\dimitarrad\\IdeaProjects\\Html\\src\\index.html");
 
     }
 }
