@@ -11,7 +11,7 @@ import java.util.Set;
  * on 2/7/2021
  */
 public class ManageCookies {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         String driverExecutablePath = "C://WebDriver//bin//chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverExecutablePath);
@@ -22,16 +22,14 @@ public class ManageCookies {
 
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("incognito");
-        //options.addArguments("start-maximized");
-        //options.addArguments("user-data-dir=" + "C:/Users/dimitarrad/AppData/Local/Google/Chrome/User Data/Default");
-
-        // String url = "C://Users//dimitarrad//IdeaProjects//Html//src//index.html";
+        options.addArguments("start-maximized");
+        //options.addArguments("headless");
+        options.addArguments("disable-infobars");
 
         WebDriver driver = new ChromeDriver(options);
 
-
-
         driver.get(url);
+
         Cookie cookie = new Cookie("CONSENT", "YES+BG.bg+V9+BX");
         driver.manage().addCookie(cookie);
         Cookie cookie2 = new Cookie("UULE", "a+cm9sZTogMQpwcm9kdWNlcjogMTIKdGltZXN0YW1wOiAxNjEyNzIzOTUxODQyMDAwCmxhdGxuZyB7CiAgbGF0aXR1ZGVfZTc6IDQyNjMxNDczMAogIGxvbmdpdHVkZV9lNzogMjMzODM5NzUzCn0KcmFkaXVzOiAxNTQ3NTIwCnByb3ZlbmFuY2U6IDYK");
@@ -40,20 +38,9 @@ public class ManageCookies {
         driver.manage().addCookie(cookie);
 
 
-        Set<Cookie> d = driver.manage().getCookies();
-
-        driver.navigate().refresh();
-        Set<Cookie> d2 = driver.manage().getCookies();
-        //Launch the ToolsQA WebSite
-
-/*            try {
-
-                element.sendKeys("dsdsd");
-                driver.findElement(By.id("UserName")).sendKeys(Keys.ENTER);
-
-            }catch (NullPointerException r){
-                System.out.println(" NoSuchElementException catched ");
-            }*/
+        Set<Cookie> cookies = driver.manage().getCookies();
+        System.out.println("cookies size: "+cookies.size());
+        //driver.navigate().refresh();
 
         WebElement element = driver.findElement(By.cssSelector("input[name='q']"));
 
@@ -64,9 +51,23 @@ public class ManageCookies {
 
         link.click();
 
+        Thread.sleep(2000);
         String t = driver.getTitle();
 
+        driver.manage().deleteCookieNamed("CONSENT");
+        driver.manage().deleteCookieNamed("UULE");
+        driver.manage().deleteCookieNamed("NID");
+
+        driver.navigate().to(url);
+
+
+
+        Thread.sleep(3000);
+
         System.out.println(t);
-        driver.close();;
+        //driver.close();
     }
+
 }
+
+

@@ -93,8 +93,6 @@ public class WebDriverComands_basic {
 
         e.click();
        e.sendKeys(Keys.CONTROL +"t");
-
-
         e.sendKeys(Keys.CONTROL +"t");
         ((JavascriptExecutor)driver).executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
